@@ -1,0 +1,24 @@
+
+.HomePage__Class
+{
+    width: 100%;
+}
+
+.EachClass__List
+{
+
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+}
+.EachClass__Each
+{
+    margin: 10px;
+}
+.EachClass__Each:hover
+{
+    transform: scale(1.05);
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+    filter: drop-shadow(3px 3px 4px rgb(45, 45, 45));
+}
