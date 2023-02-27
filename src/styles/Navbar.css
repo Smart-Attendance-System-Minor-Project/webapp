@@ -39,11 +39,30 @@ body{
     
 }
 .nav li:hover{
-    background-color: #777;
+    transform: scale(1.05);
+    transition: 0.1s ease-in-out;
+    border: 1px solid #29b0db;
+    border-radius: 3px;
+    
 }
 
 .Navbar__Logo
 {
     object-fit: contain;
     height:30px;
+}
+
+.Navbar__Logout
+{
+    border:none;
+    outline: none;
+    background-color: #29b0db;
+    color:white;
+    border-radius: 3px;
+    padding:8px;
+}
+
+.Navbar__Logout:hover
+{
+    cursor: pointer;
 }

@@ -1,25 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import '../styles/Login.css';
 import Button from '@mui/material/Button';
 import { Navigate } from "react-router-dom";
+import { useDispatch,useSelector } from "react-redux";
+import {login,reset} from '../redux/authReducers/authSlice';
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const {user,isError,isSuccess,isLoading} = useSelector(state=>state.auth);
+
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    if(isSuccess || user)
+    {
+      window.location.assign('/');
+    }
+
+  },[user,isError,isSuccess,isLoading])
 
   function handleLogin(e) {
     e.preventDefault();
     console.log(username,password)
     const data={username, password};
-    axios.post('https://prat051.pythonanywhere.com/attendance/login/', data)
-    .then(response => {
-        console.log('login successful: ', response.data);
-        window.location.assign('/')
-        //works
-    })
-    .catch(error => {
-        console.error('there was a problem with login: ', error);
-    });
+    
+    try {
+      dispatch(login(data));
+      dispatch(reset())
+    } catch (error) {
+      
+    }
   }
 
   return (

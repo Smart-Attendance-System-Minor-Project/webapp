@@ -1,3 +1,9 @@
-export default function Analytics() {
-    return <h1>Analytics</h1>
+import React from 'react'
+
+function Analytics() {
+  return (
+    <div>Analytics</div>
+  )
 }
+
+export default Analytics

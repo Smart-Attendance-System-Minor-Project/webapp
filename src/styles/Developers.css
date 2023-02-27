@@ -1,0 +1,35 @@
+.Developers__Heading h1
+{
+    font-size: 400%;
+}
+
+.Developer__ContentContainer
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.Developer__Image
+{
+background-color: white;
+filter: drop-shadow(3px 3px 4px rgb(15, 15, 15));
+width: 150px;
+height: 150px;
+border-radius: 50%;
+}
+
+.Developer
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color:white;
+}
+.Developer__Content
+{
+    background-color: #1c1c1c;
+    height: 200px;
+    width: 220px;
+    margin-top: -20px;
+    border-radius: 10px;
+}
