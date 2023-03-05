@@ -1,5 +1,51 @@
-table, tr, td
+table, tr, td,th
 {
     border: 1px solid black;
     border-collapse: collapse;
+
+}
+
+.ViewRecord__Container
+{
+    width: 100%;
+}
+.Table__Container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    
+
+   
+}
+
+.ViewRecord__Buttons
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ViewRecord__Buttons button
+{
+    margin: 10px;
+    border: none;
+    background-color: #29b0db;
+    color:white;
+    border-radius: 3px;
+    padding: 10px;
+
+}
+.ViewRecord__Buttons button:hover
+{
+    cursor: pointer;
+}
+.ViewRecord__Buttons button:active
+{
+    background-color: #86e1fd;
+    
 }

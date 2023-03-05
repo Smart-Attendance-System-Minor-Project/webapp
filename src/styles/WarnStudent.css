@@ -1,0 +1,7 @@
+.warnStudent__Container
+{
+    width: 100%;
+    padding: 10px;
+    height: 450px;
+    overflow-y: scroll;
+}

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import '../styles/Login.css';
 import Button from '@mui/material/Button';
-import { Navigate } from "react-router-dom";
+import Dots from "react-activity/dist/Dots";
+import "react-activity/dist/Dots.css"
+import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import {login,reset} from '../redux/authReducers/authSlice';
 export default function Login() {
@@ -12,8 +14,10 @@ export default function Login() {
   const {user,isError,isSuccess,isLoading} = useSelector(state=>state.auth);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(()=>{
+    
     if(isSuccess || user)
     {
       window.location.assign('/');
@@ -39,7 +43,7 @@ export default function Login() {
 
       <img src = {require("../images/logo-white.png")} className = "Login__Image" alt = "wellAttendLogo"></img>
 
-
+      {isLoading && <Dots/>}
       <form onSubmit={handleLogin} className = "LoginForm__Container">
      
         <input
@@ -65,7 +69,9 @@ export default function Login() {
        <Button variant="contained" style = {{width:'20%',backgroundColor:'#29b0db',padding:'13px'}} type = "submit">Login</Button>
       </form>
 
-      <a href = "#" className="Login__MeetDev">Meet the Developers</a>
+      <a onClick={()=>navigate('/validateEmail')} className="Login__MeetDev">Forgot Password?</a>
+
+      <span>Designed for IOE, Pulchowk Campus</span>
 
     </div>
     

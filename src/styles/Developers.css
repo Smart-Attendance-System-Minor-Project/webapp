@@ -1,6 +1,17 @@
+.Developers__Container
+{
+    background-image: linear-gradient(to bottom,white,#a1dff1);
+    height: 95vh;
+    margin-left: 0;
+    overflow: hidden;
+    
+}
+
+
 .Developers__Heading h1
 {
     font-size: 400%;
+    color: #29b0db;
 }
 
 .Developer__ContentContainer
@@ -13,7 +24,7 @@
 {
 background-color: white;
 filter: drop-shadow(3px 3px 4px rgb(15, 15, 15));
-width: 150px;
+width: 140px;
 height: 150px;
 border-radius: 50%;
 }
@@ -27,9 +38,16 @@ border-radius: 50%;
 }
 .Developer__Content
 {
-    background-color: #1c1c1c;
+    background-color: #252525;
     height: 200px;
     width: 220px;
     margin-top: -20px;
     border-radius: 10px;
+}
+
+.Developer__Image img
+{
+    border-radius: 50%;
+    object-fit: contain;
+    height: 150px;
 }

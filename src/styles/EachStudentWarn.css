@@ -1,0 +1,43 @@
+.eachStudent__Warn
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.eachStudent__Info
+{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+}
+.eachStudent__Info h3,h4
+{
+    margin: 3px;
+}
+
+.eachStudent__Info h4
+{
+    font-weight: 500;
+}
+
+.wantTo__Warn button
+{
+    border: none;
+    color:white;
+    padding: 10px;
+    background-color: #f0c311;
+    border-radius: 3px;
+}
+.wantTo__Warn button:hover
+{
+    cursor: pointer;
+}
+.wantTo__Warn button:active
+{
+    background-color:#fde687 ;
+}

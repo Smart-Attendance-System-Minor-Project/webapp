@@ -15,13 +15,21 @@ function Home() {
     
     const dispatch = useDispatch();
     useEffect(()=>{
+        if(!localStorage.getItem('token'))
+        {
+            window.location.assign('/login');
+        }
         async function fetchData()
         {
             const getDataParameter = {
                 username:localStorage.getItem('username')
             }
-            const getClasses = await axios.post('https://prat051.pythonanywhere.com/attendance/view_class/',getDataParameter);
-            const getRecords = await axios.post('https://prat051.pythonanywhere.com/attendance/get_records/',getDataParameter);
+
+            const config = {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            };
+            const getClasses = await axios.post('https://wellattend.pythonanywhere.com/attendance/view_class/',getDataParameter,config);
+            const getRecords = await axios.post('https://wellattend.pythonanywhere.com/attendance/get_records/',getDataParameter,config);
             //console.log(getClasses);
             
 
@@ -58,6 +66,10 @@ function Home() {
 
                         )
                     })}
+                    {/* <div>
+                    <button style={{width:'150px',height:'150px',borderRadius:'30px',backgroundColor:'#fff'}}><h1>+</h1></button>
+                    </div> */}
+                   
                    
                    
                 </div>

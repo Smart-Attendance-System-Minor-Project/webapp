@@ -3,21 +3,22 @@ import axios from 'axios';
 
 const register = async(userData)=>{
   
-    const response = await axios.post("https://prat051.pythonanywhere.com/attendance/register/",userData);
+    const response = await axios.post("https://wellattend.pythonanywhere.com/attendance/register/",userData);
 
     if(response.data)
     {
+        localStorage.setItem('token',response.data.acess);
         return response.data;
     }
 }
 
 const login = async (userData) => {
 
-           const response = await axios.post("https://prat051.pythonanywhere.com/attendance/login/",userData);
+           const response = await axios.post("https://wellattend.pythonanywhere.com/attendance/login/",userData);
 
            if(response.data)
            {
-            //localStorage.setItem("token",response.data.success)
+            localStorage.setItem("token",response.data.access)
             localStorage.setItem('username',userData.username);
            }
     
