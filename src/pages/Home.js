@@ -19,6 +19,7 @@ function Home() {
         {
             window.location.assign('/login');
         }
+        
         async function fetchData()
         {
             const getDataParameter = {
@@ -32,6 +33,7 @@ function Home() {
             const getRecords = await axios.post('https://wellattend.pythonanywhere.com/attendance/get_records/',getDataParameter,config);
             //console.log(getClasses);
             
+
 
             setRecordInfo(getRecords.data);
             setClassInfo(getClasses.data);

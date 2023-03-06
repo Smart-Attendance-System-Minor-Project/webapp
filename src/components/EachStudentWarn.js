@@ -23,15 +23,18 @@ function EachStudentWarn({name,absentCount}) {
       subject:subject,
       subject_name:localStorage.getItem('subject'),
       class_name:localStorage.getItem('class_name'),
-      email:"076bct055.rajesh@pcampus.edu.np"
+      email: `${(name.split(' - ')[1]).toLowerCase()}.${((name.split(' - ')[0]).split(' ')[0]).toLowerCase()}@pcampus.edu.np`
 
     }
-
+    
+    console.log(emailingData.email)
     const config = {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
   };
   try {
     const response = await axios.post('https://wellattend.pythonanywhere.com/attendance/warn/',emailingData,config);
+    console.log(response)
+    setShow(false)
   } catch (error) {
     console.log(error)
   }

@@ -9,12 +9,13 @@ import { setTraversal } from '../redux/recordReducer/studentDateSlice';
 import '../styles/ViewRecords.css'
 function ViewRecord() {
 
-    const {records} = useSelector(state=>state.record);
+    const {records,isSuccess,isError,isLoading} = useSelector(state=>state.record);
     const [iniDate,setIniDate] = useState('');
     const [dateCol,setDateCol] = useState([]);
     const [studentData,setStudentData] = useState([]);
     const [csvHeaders,setcsvHeaders] = useState([]);
     const [csvData,setcsvData] = useState([]);
+    const [activateAnalyze,setActivateAnalyze] = useState(false);
     const [percentagePresents,setPercentagePresent] = useState({});
 
 
@@ -28,13 +29,15 @@ function ViewRecord() {
         })
 
     useEffect(()=>{
+        
         if(!localStorage.getItem('token'))
         {
             window.location.assign('/login');
         }
 
         //data setting to set the recordFinder which will get the particular records
-       
+       async function rundata()
+       {
         const recordFinderDataFetch = {
             username:localStorage.getItem('username'),
             class_name:localStorage.getItem('class_name'),
@@ -42,22 +45,25 @@ function ViewRecord() {
             subject:localStorage.getItem("subject")
         }
 
-        setIniDate(Object.keys(records['0']["attendance_record"])[0])
+        //console.log(Object.keys(records['0']["attendance_record"])[0]);
+        setIniDate(Object.keys(records[0]["attendance_record"])[0])
         setRecordFinder(recordFinderDataFetch)
 
         var dateList = [];
         var studentList = [];
         var percentagePresentEach = {};
         
+        
         records.map(eachRecord=>{
-           
-            (Object.keys(eachRecord.attendance_record)).map(eachDate=>{
-                
+            
+        (Object.keys(eachRecord.attendance_record)).map(eachDate=>{
                 dateList.push(eachDate);
             })
 
         })
+        
 
+        
         records.map(eachRecord=>{
             (Object.keys(eachRecord.attendance_record[dateList[0]]["Records"])).map(eachStudent=>{
                 studentList.push(eachStudent);
@@ -104,21 +110,15 @@ function ViewRecord() {
             studentList:studentList,
             dateList:dateList
         }
-        dispatch(setTraversal(traversingData))
+        dispatch(setTraversal(traversingData));
+       }
 
-        //below code is for the downloading csv format
+       rundata();
         
-        // records.map(eachRecord=>{
-        //     studentList.map(eachStudent=>{
-        //         var eachStudentRow = [];
-        //         dateList.map(eachDate=>{
-        //             eachRecord.attendance_record[eachDate]["Records"][eachStudent]
-        //         })
-        //     })
-        // })
+       
         
 
-    },[]);
+    },[percentagePresents,isSuccess,isError,isLoading]);
 
     
   return (
@@ -128,7 +128,7 @@ function ViewRecord() {
         <h3>{localStorage.getItem("subject")} - {localStorage.getItem('class_name')}</h3>
         <h3>{localStorage.getItem("class_type") === "P"?"Practical":"Lecture"}</h3>
         <div className='ViewRecord__Buttons'>
-            <button onClick={()=>{navigate('/analytics')}}>Analyze</button>
+            {activateAnalyze && <button onClick={()=>{navigate('/analytics')}}>Analyze</button>}
             {/* <button>Download .csv</button> */}
             <CSVLink 
             data={csvData}
@@ -145,9 +145,7 @@ function ViewRecord() {
              
 
              
-             if (eachRecord.teacher_username === recordFinder.username && eachRecord.class_name === recordFinder.class_name
-                 && eachRecord.class_type === recordFinder.class_type && eachRecord.subject === recordFinder.subject
-                 )
+                 
                  {
                      return (
                          <div key = {eachRecord} className="Table__Container">
@@ -156,6 +154,7 @@ function ViewRecord() {
                                      <th style={{width:'20%'}}>Name</th>
                                      <th style={{width:'100px'}}>Roll Number</th>
                                      {(Object.keys((eachRecord.attendance_record))).map(date=>{
+                                       
                                          return (
                                              <th key={date} style = {{width:'100px'}}>{date}</th>
  
@@ -163,9 +162,8 @@ function ViewRecord() {
                                      })}
                                      <th>Presence</th>
                                  </tr>
-                                 
                                     
-                                     {(Object.keys((eachRecord.attendance_record)[iniDate]["Records"])).map(eachStudent=>{
+                                     {(Object.keys(eachRecord.attendance_record[Object.keys(eachRecord.attendance_record)[0]]['Records'])).map(eachStudent=>{
                                              
                                          return (
                                              <tr key = {eachRecord}>

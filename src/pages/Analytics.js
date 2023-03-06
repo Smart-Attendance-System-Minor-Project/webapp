@@ -32,14 +32,16 @@ function Analytics() {
 
     var arrayOfPresentNumber = [];
     //We only select the latest eight records that is why slice(-8) is used.
-    records.slice(-8).map(eachRecord=>{
-      
-      (traverse_data.dateList).map(eachDate=>{
-        var countPresent = 0;
     
+    records.map(eachRecord=>{
+      //console.log(...eachRecord)
+      (traverse_data.dateList).slice(-8).map(eachDate=>{
+        var countPresent = 0;
+        
         (traverse_data.studentList).map(eachStudent=>{
           if(eachRecord.attendance_record[eachDate]["Records"][eachStudent] === "P")
           {
+           
             countPresent += 1;
           }
         })
@@ -47,6 +49,7 @@ function Analytics() {
       })
       
     })
+    
     
     var absentStudentArray = [];
     
@@ -78,12 +81,12 @@ function Analytics() {
       sumOfPresence += eachDayPresence;
     })
     
-    setAverage(parseInt(sumOfPresence / 8));
-    setTotalPercent((sumOfPresence / 8) / (traverse_data.studentList).length * 100);
+    setAverage(parseInt(sumOfPresence)/8);
+    setTotalPercent((average) / (traverse_data.studentList).length * 100);
 
     
 
-  },[])
+  },[eightDayPresentCount])
 
   return (
     <>
@@ -123,12 +126,12 @@ function Analytics() {
           datasetIdKey='id'
           color='#29b0db'
           data={{
-            labels: traverse_data.dateList,
+            labels: traverse_data.dateList.slice(-8),
             datasets: [
               {
                 id: 1,
                 label: 'Present Students',
-                data: eightDayPresentCount,
+                data: (eightDayPresentCount.slice(-8)),
                 backgroundColor: '#fff',
                 borderColor: '#29b0db' 
                 
