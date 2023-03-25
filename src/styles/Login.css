@@ -2,16 +2,52 @@
 {
 
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
+    align-items: center;
+    justify-content: space-around;
     position: fixed;
-    z-index: 3; /* or absolute */
-    top: 40%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
+    z-index: 3;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-55%);
+   
     
     
+}
+
+.login__Advertise
+{
+width: 50%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.comingSoon
+{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-around;
+    width:50;
+    margin-top:50px;
+}
+.login__Login
+{
+    
+    flex:0.5;
+}
+.advertise_logo
+{
+    object-fit: contain;
+    height:250px;
+}
+.advertise_logo_icons
+{
+    object-fit: contain;
+    height:60px;
 }
 
 .LoginForm__Container
@@ -29,7 +65,7 @@
     border: none;
     margin: 10px;
     padding: 18px;
-    width: 20%;
+    width: 80%;
     border: 1px solid rgb(41, 41, 41);
     border-radius: 3px;
 }
@@ -43,7 +79,7 @@
 {
     border: none;
     padding: 18px;
-    width: 20%;
+    width: 80%;
     border-radius: 3px;
     background-color: #29b0db;
     color:white
@@ -62,4 +98,26 @@
     text-decoration: none;
     color: #29b0db;
     cursor: pointer;
+}
+
+.IOE__Pulchowk
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    
+}
+
+.IOE__Pulchowk img
+{
+    object-fit: contain;
+    height: 40px;
+}
+
+.IOE__Pulchowk span
+{
+    color: #2e2e2e;
+    margin-top: 10px;
 }

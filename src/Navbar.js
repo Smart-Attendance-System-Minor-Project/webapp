@@ -16,7 +16,7 @@ export default function Navbar() {
     },[user])
     return <nav className="nav">
         <Link to="/" className="site-title">
-          <img src = {require("./images/logo-white.png")} className = "Navbar__Logo"/>
+          <img src = {require("./images/logo_white.png")} className = "Navbar__Logo"/>
         </Link>
         <ul>
             

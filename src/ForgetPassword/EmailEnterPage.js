@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import "../styles/EmailEnterPage.css"
 function EmailEnterPage() {
     const [email,setEmail]= useState('');
     const navigate = useNavigate();
@@ -27,17 +28,19 @@ function EmailEnterPage() {
   return (
 
     <div className='EmailEnterPage__Container'>
-        <div>
-            <h1>Enter the email you used during registration.</h1>
+        
+        <div className = "EmailEnterPage__Heading">
+            <h2>Enter the email you used during registration.</h2>
             <h3 style={{color:'red'}}>{error}</h3>
         </div>
-        <div>
-            <input onChange={(e)=>{setEmail(e.target.value)}}></input>
+        <div className = "EmailEnterPage__Input">
+            <input onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email Address"></input>
         </div>
-        <div>
+        <div className = "EmailEnterPage__Button">
             <button onClick={handleEmailVerification}>Validate Email</button>
+            <a onClick={()=>navigate('/login')} id = "takeMeBack">Back to login</a>
         </div>
-        {/* <a onClick={navigate('/login')}>Back to login</a> */}
+       
     </div>
   )
 }

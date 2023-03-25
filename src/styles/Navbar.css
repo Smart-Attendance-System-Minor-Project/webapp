@@ -4,10 +4,12 @@
 body{
     margin: 0;
     font-family: 'Helvetica';
+    
 }
 .container{
     margin: 1rem;
     text-align: center;
+    
 }
 .nav{
    
@@ -17,6 +19,7 @@ body{
     align-items: stretch;
     gap: 2rem;
     padding: 0 1rem;
+    
     
 }
 .site-title{

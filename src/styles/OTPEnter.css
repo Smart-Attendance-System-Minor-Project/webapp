@@ -1,4 +1,14 @@
 
+.OTP__Container
+{
+    position: fixed;
+    z-index: 3;
+    width: 100%; /* or absolute */
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
 .OTP__EnterBox
 {
     width: 100%;
@@ -27,4 +37,18 @@
 .OTP__EnterBox input:active
 {
     border-color: #29b0db;
+}
+
+#Verify
+{   border: none;
+    color:#fff;
+    background-color: #29b0db;
+    padding: 8px;
+    border-radius: 3px;
+
+}
+
+#Verify:hover
+{
+    cursor: pointer;
 }

@@ -1,29 +1,60 @@
 .Developers__Container
 {
-    background-image: linear-gradient(to bottom,white,#a1dff1);
-    height: 95vh;
+    background-image: linear-gradient(to right,white,#a1dff1);
+    height: 100vh;
     margin-left: 0;
     overflow: hidden;
+ 
+}
+
+.DevContainer__Group
+{
+    width: 100%;
+    position: fixed;
+    z-index: 3; /* or absolute */
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
     
+}
+
+.Developers__Heading
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .Developers__Heading h1
 {
-    font-size: 400%;
-    color: #29b0db;
+    margin: 0;
+    text-align: left;
+    
+    
 }
-
+.Developers__Heading span
+{
+    font-size: 300%;
+    font-family: "Helvetica";
+    background: -webkit-linear-gradient(#3b3b3b, #0f576d);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    margin: 0;
+}
 .Developer__ContentContainer
 {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-top: 30px;
 }
 .Developer__Image
 {
-background-color: white;
-filter: drop-shadow(3px 3px 4px rgb(15, 15, 15));
+
+filter: drop-shadow(3px 3px 4px rgb(50, 177, 240));
 width: 140px;
 height: 150px;
 border-radius: 50%;
@@ -45,9 +76,13 @@ border-radius: 50%;
     border-radius: 10px;
 }
 
+.Developer__Content h2
+{
+    margin-top: 50px;
+}
 .Developer__Image img
 {
     border-radius: 50%;
     object-fit: contain;
-    height: 150px;
+    height: 100%;
 }

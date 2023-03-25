@@ -8,6 +8,7 @@ import Login from "./pages/Login"
 import Developers from "./pages/Developers";
 import { Route, Routes } from "react-router-dom";
 import ViewRecord from "./pages/ViewRecord";
+import ViewRecordsTemp from "./pages/ViewRecordsTemp";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/developers" element={<Developers />} />
-          <Route path = "view_records" element = {<ViewRecord/>}/>
+          <Route path = "/view_records" element = {<ViewRecord/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/validateEmail" element={<EmailEnterPage />} />
           <Route path="/otpValidation" element={<OTPEnterPage />} />

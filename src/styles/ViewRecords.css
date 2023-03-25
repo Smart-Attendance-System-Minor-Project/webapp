@@ -8,6 +8,9 @@ table, tr, td,th
 .ViewRecord__Container
 {
     width: 100%;
+   
+
+  
 }
 .Table__Container
 {
@@ -49,3 +52,16 @@ table, tr, td,th
     background-color: #86e1fd;
     
 }
+
+.ViewRecord__TableContainer
+{
+   
+    max-width: 500px;
+   overflow-x: auto;
+    height: 900px;
+  
+    /* bring your own prefixes */
+   
+  
+}
+

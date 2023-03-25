@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import '../styles/EnterNewPassword.css'
 import { useNavigate } from 'react-router-dom';
 function EnterNewPasswordPage() {
     const [password,setPassword] = useState('');
@@ -28,10 +29,11 @@ function EnterNewPasswordPage() {
     }
 
   return (
-    <div>
-        <input onChange={(e)=>{setPassword(e.target.value)}}></input>
-        <input onChange={(e)=>{setConfirmPassword(e.target.value)}}></input>
-        <button onClick={handleChangePassword}></button>
+    <div className='EnterPassword__Container'>
+      <h1>Enter your new password.</h1>
+        <input onChange={(e)=>{setPassword(e.target.value)}} type="password" placeholder='Password'></input>
+        <input onChange={(e)=>{setConfirmPassword(e.target.value)}} type="password" placeholder='Confirm Password'></input>
+        <button onClick={handleChangePassword}>Change Password</button>
     </div>
   )
 }

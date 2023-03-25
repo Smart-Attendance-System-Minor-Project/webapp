@@ -9,8 +9,9 @@ function Developers() {
     },[]);
   return (
     <div className = "Developers__Container">
+        <div className = "DevContainer__Group">
         <div className = "Developers__Heading">
-            <h1>The Deep Learners</h1>
+            <h1><span>Deep Learners</span></h1>
         </div>
 
         <div className = "Developer__ContentContainer">
@@ -21,6 +22,7 @@ function Developers() {
                 <div className = "Developer__Content">
                     <h2>Pratik Dahal</h2>
                     <h4 style = {{color:'#29b0db'}}>Backend Engineer</h4>
+                    
                 </div>
             </div>
             <div className = "Developer">
@@ -29,7 +31,7 @@ function Developers() {
              </div>
              <div className = "Developer__Content">
                     <h2>Rahul Kumar Jha</h2>
-                    <h4 style = {{color:'#29b0db'}}>Backend Engineer</h4>
+                    <h4 style = {{color:'#29b0db'}}>Project Manager</h4>
              </div>
             </div>
             <div className = "Developer">
@@ -43,6 +45,9 @@ function Developers() {
             </div>
           
         </div>
+
+        </div>
+       
     </div>
   )
 }

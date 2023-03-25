@@ -1,25 +1,18 @@
 import axios from 'axios';
 
 
-const register = async(userData)=>{
-  
-    const response = await axios.post("https://wellattend.pythonanywhere.com/attendance/register/",userData);
 
-    if(response.data)
-    {
-        localStorage.setItem('token',response.data.acess);
-        return response.data;
-    }
-}
 
 const login = async (userData) => {
-
+            
            const response = await axios.post("https://wellattend.pythonanywhere.com/attendance/login/",userData);
 
+         
            if(response.data)
            {
             localStorage.setItem("token",response.data.access)
-            localStorage.setItem('username',userData.username);
+            localStorage.setItem('username',response.data.username);
+            localStorage.setItem("fullName",response.data.full_name);
            }
     
            return response.data
@@ -27,8 +20,8 @@ const login = async (userData) => {
 }
 
 const authService = {
-    login,
-    register
+    login
+
 }
 
 export default authService

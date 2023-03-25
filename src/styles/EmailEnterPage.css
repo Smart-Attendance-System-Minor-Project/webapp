@@ -1,0 +1,64 @@
+.EmailEnterPage__Container
+{
+    position: fixed;
+    z-index: 3;
+    width: 100%; /* or absolute */
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+
+.EmailEnterPage__Heading 
+{
+    margin-top: 40px;
+    
+}
+
+.EmailEnterPage__Heading h1
+{
+    font-family: 'Inter';
+}
+
+.EmailEnterPage__Input input
+{
+    border: none;
+    outline: none;
+    background-color: #f0f0f0;
+    margin: 8px;
+    width: 30%;
+    font-family: 'Inter';
+    color: #2f2f2f;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.EmailEnterPage__Input input:focus
+{
+    border: 1px solid #29b0db;
+}
+
+.EmailEnterPage__Button button
+{
+    border: none;
+    color:#fff;
+    background-color: #29b0db;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+#takeMeBack
+{
+    color:#000;
+    margin-left: 20px;
+    border: 1px solid #29b0db;
+    padding: 5px;
+    border-radius: 3px;
+    
+}
+
+#takeMeBack:hover
+{
+    cursor: pointer;
+}

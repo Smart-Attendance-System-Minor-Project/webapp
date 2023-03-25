@@ -6,12 +6,19 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
 
 
-var initialState = {
+const initialState = {
     
-    absentStudents:[],
+    students:[],
+    dateList:[],
+    columnData:[],
+    presentData:{},
+    lastRow:[],
+    csvData:[],
+    presentNumbers:[],
+    absentNumbers:[],
+    isLoading:false,
     isError:false,
-    isSuccess: false,
-    isLoading: false,
+    isSuccess:false
  
     
 }
@@ -19,7 +26,7 @@ var initialState = {
 
 
 //Register user
-export const setAbsentStudents = createAsyncThunk('record/absentStudents',async (recordData,thunkAPI)=>{
+export const setForViewRecords = createAsyncThunk('record/setForViewRecords',async (recordData,thunkAPI)=>{
     try {
         return recordData;
     } catch (error) {
@@ -34,7 +41,7 @@ export const setAbsentStudents = createAsyncThunk('record/absentStudents',async 
 
 
 export const authSlice = createSlice({
-    name:'setAbsentStudents',
+    name:'records',
     initialState,
     reducers:{
         reset: (state) => {
@@ -50,18 +57,25 @@ export const authSlice = createSlice({
     extraReducers:(builder)=>{
 
         builder
-        .addCase(setAbsentStudents.pending,(state) => {
+        .addCase(setForViewRecords.pending,(state) => {
             state.isLoading = true
         })
-        .addCase(setAbsentStudents.fulfilled,(state,action)=>{
+        .addCase(setForViewRecords.fulfilled,(state,action)=>{
             state.isLoading = false
             state.isSuccess = true
-            action.payload.sort(function(b,a){return (b["absentCountWithNotice"] + b["absentCountWithoutNotice"]) - (a["absentCountWithNotice"] + a["absentCountWithoutNotice"])})
-            state.absentStudents = action.payload.reverse()
+            state.students = action.payload[0]
+            state.columnData = action.payload[1]
+            state.presentData = action.payload[2]
+            state.csvData = action.payload[3]
+            state.dateList = action.payload[4]
+            state.presentNumbers = action.payload[5]
+            state.absentNumbers = action.payload[6]
+         
+           
             
            
         })
-        .addCase(setAbsentStudents.rejected,(state,action) => {
+        .addCase(setForViewRecords.rejected,(state,action) => {
             state.isLoading = false
             state.isSuccess = false
             state.isError = true

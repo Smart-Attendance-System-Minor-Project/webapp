@@ -8,7 +8,7 @@ function EachClass({subjectName,classType,className}) {
         </div>
        
         <div className = "EachClass__LecClass">
-            <h5>{classType}<br></br>{className}</h5>
+            <h5>{className} - {classType === "L"?'Lecture':"Practical"}</h5>
         
         </div>
 

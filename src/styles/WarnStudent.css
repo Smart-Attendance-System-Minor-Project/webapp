@@ -2,6 +2,22 @@
 {
     width: 100%;
     padding: 10px;
-    height: 450px;
+    height: 400px;
     overflow-y: scroll;
+}
+
+
+.bulkWarn
+{
+    border:none;
+    background-color: #29b0db;
+    padding:5px;
+    color:#fff;
+    width:100px;
+    margin:10px;
+    border-radius: 3px;
+}
+.bulkWarn:hover
+{
+    cursor: pointer;
 }
